@@ -36,7 +36,7 @@ This is an Ecommerce website developed using ASP.NET. Users can browse products,
 ## 📷 Screenshots
 
 1.https://github.com/Sakshibusa/crocusWebsite/blob/06522307d7e7c8fa44783a221f7bf663547572e1/Login.png
-2.
+2.https://github.com/Sakshibusa/crocusWebsite/blob/87be79313811093d23ee6fbe2d057b24291021d6/userSide1.png
 3.
 4.
 
