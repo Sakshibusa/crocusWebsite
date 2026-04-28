@@ -1,0 +1,352 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="navFoot.master.cs" Inherits="crocusProject.navFoot" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+
+    <style>
+        /* ===== HEADER ===== */
+        .header-main {
+            padding: 18px 50px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .header-main {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo a {
+            font-size: 36px;
+            font-weight: 500;
+            color: #2d4d2f;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .menu-bar {
+            position: sticky;
+            top: 90px; /* navbar ni height jetlu */
+            z-index: 999;
+            background: white;
+        }
+        /* ===== SEARCH ===== */
+        .search-box {
+            position: relative;
+            width: 520px;
+        }
+
+            .search-box input {
+                height: 48px;
+                padding-left: 45px;
+                border: none;
+                background: #f3f3f3;
+            }
+
+            .search-box i {
+                position: absolute;
+                top: 14px;
+                left: 15px;
+                color: gray;
+            }
+
+        /* ===== RIGHT ICONS ===== */
+        .right-icons {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-size: 18px;
+            color: #2d4d2f;
+        }
+
+            .right-icons span {
+                font-weight: 500;
+            }
+
+            .right-icons a {
+                color: #2d4d2f;
+                text-decoration: none;
+            }
+
+                .right-icons a:hover {
+                    color: #4f6f3c;
+                }
+
+
+        /* ===== MENU BAR ===== */
+        .menu-bar {
+            border-bottom: 1px solid #ddd;
+            padding: 12px 0;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            .menu li a {
+                text-decoration: none;
+                color: #333;
+                font-weight: 500;
+                font-size: 15px;
+            }
+
+                .menu li a:hover {
+                    color: #2d4d2f;
+                }
+
+        /* OFFER COLOR */
+        .offer {
+            color: #c0392b !important;
+        }
+
+        /* ===== DROPDOWN ===== */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            padding: 10px 0;
+            min-width: 180px;
+            border: 1px solid #eee;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            padding: 6px 15px;
+        }
+
+            .dropdown-menu li a {
+                color: #333;
+                font-size: 14px;
+            }
+
+        .dropdown-menu {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+
+
+
+        /*Footer*/
+        .footer {
+            background-color: #dbdcd6;
+            color: #555555;
+            padding: 40px 50px 20px;
+            margin-top: 50px;
+        }
+
+            .footer h5, .footer h6 {
+                margin-bottom: 15px;
+            }
+
+            .footer ul {
+                list-style: none;
+                padding: 0;
+            }
+
+                .footer ul li {
+                    margin-bottom: 8px;
+                }
+
+                    .footer ul li a {
+                        color: #2d4d2f;
+                        text-decoration: none;
+                        font-size: 14px;
+                    }
+
+                        .footer ul li a:hover {
+                            color: white;
+                        }
+
+        .social-icons i {
+            color: black;
+            margin-right: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        .social-icons {
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #aaa;
+            margin-top: 20px;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- HEADER -->
+        <div class="header-main">
+            <div class="container-fluid d-flex align-items-center justify-content-between">
+
+                <!-- LOGO -->
+                <div class="logo"><a href="UserHome.aspx">CROCUS</a></div>
+
+                <!-- SEARCH -->
+                <div class="search-box">
+                    <i class="fa fa-search"></i>
+                    <asp:TextBox ID="txtSearch" runat="server"
+                        CssClass="form-control"
+                        placeholder="The perfect plant or pot is just a search away"></asp:TextBox>
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="right-icons">
+                    <span>IRIS</span>
+
+                    <a href="login.aspx"><i class="fa fa-user"></i></a>
+                    <a href="wishlist.aspx">  <i class="fa fa-heart"></i></a>
+                  
+                    <a href="Cart.aspx"><i class="fa fa-shopping-cart"></i></a>
+                    <a href="MyOrders.aspx"><i class="fa-solid fa-truck"></i></a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MENU -->
+        <div class="menu-bar">
+            <ul class="menu">
+
+                <asp:Repeater ID="rptCategory" runat="server" OnItemDataBound="rptCategory_ItemDataBound">
+                    <ItemTemplate>
+                        <li class="dropdown">
+                            <a href="#"><%# Eval("CategoryName") %></a>
+
+                            <ul class="dropdown-menu">
+                                <asp:Repeater ID="rptSubCategory" runat="server">
+                                    <ItemTemplate>
+                                        <li><a href='plantshrubs.aspx?subId=<%# Eval("SubCategoryId") %>'><%# Eval("SubCategoryName") %></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </li>
+                    </ItemTemplate>
+                </asp:Repeater>
+
+                <!-- <li><a href="#" class="offer">Offers</a></li>
+        <li><a href="#">Inspiration</a></li>
+        <li><a href="#">Advice</a></li>-->
+
+            </ul>
+        </div>
+
+
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <!-- COLUMN 1 -->
+                    <div class="col-md-3">
+                        <h5>CROCUS</h5>
+                        <p>Your one-stop shop for plants, pots & garden accessories.</p>
+                    </div>
+
+                    <!-- COLUMN 2 -->
+                    <div class="col-md-3">
+                        <h6>Shop</h6>
+                        <ul>
+                            <li><a href="#">Plants</a></li>
+                            <li><a href="#">Indoor Plants</a></li>
+                            <li><a href="#">Pots</a></li>
+                            <li><a href="#">Tools</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- COLUMN 3 -->
+                    <div class="col-md-3">
+                        <h6>Help</h6>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Delivery</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- COLUMN 4 -->
+                    <div class="col-md-3">
+                        <h6>Follow Us</h6>
+                        <div class="social-icons">
+                            <a href="https://facebook.com" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+
+                            <a href="https://instagram.com" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+
+
+                            <a href="https://twitter.com" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- BOTTOM -->
+                <div class="footer-bottom text-center">
+                    © 2026 CROCUS. All Rights Reserved.
+                </div>
+
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
